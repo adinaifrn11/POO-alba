@@ -4,11 +4,11 @@ class Biblioteca:
     def __init__(self):
         self.__livros = []
 
-    def adicionarLivro(self, livro: Livro):
+    def adicionarLivro(self, livro):
         self.__livros.append(livro)
         print(f"Livro '{livro.get_titulo()}' adicionado à biblioteca.")
 
-    def removerLivro(self, titulo: str):
+    def removerLivro(self, titulo):
         for livro in self.__livros:
             if livro.get_titulo() == titulo:
                 self.__livros.remove(livro)
@@ -17,7 +17,7 @@ class Biblioteca:
         print(f"Livro '{titulo}' não encontrado.")
 
    
-    def buscarLivro(self, titulo: str):
+    def buscarLivro(self, titulo):
         for livro in self.__livros:
             if livro.get_titulo() == titulo:
                 return livro
