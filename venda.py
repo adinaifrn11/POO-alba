@@ -1,4 +1,8 @@
-  def __init__(self, dataVenda):
+import json
+from Produto import Produto
+
+class Venda:
+    def __init__(self, dataVenda):
         self.__produtos = []
         self.__dataVenda = dataVenda
         self.__total = 0.0
@@ -43,8 +47,8 @@
                 "total": self.__total
             }, f, ensure_ascii=False, indent=4)
     
-    def carregar_de_json(self,carregar_de_json ):
-        with open(carregar_de_json, 'r') as f:
+    def carregar_de_json(self, salvar_em_json):
+        with open(salvar_em_json, 'r') as f:
             dados = json.load(f)
             self.__dataVenda = dados["dataVenda"]
             self.__produtos = [Produto(p["nome"], p["preco"], p["quantidade"]) for p in dados["produtos"]]
